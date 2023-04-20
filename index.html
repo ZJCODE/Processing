@@ -20,22 +20,50 @@
 
         var y = 0;
         var tag = 1;
+        let circleSize = 30;
+        var breathSize = 100;
+        let speed = 0.15;
 
         function setup() {
             let myCanvas = createCanvas(600, 400);
             myCanvas.parent('myContainer');
+            smooth();
         }
 
         function draw() {
             // 绘制代码...
-            background(0, 10);
+            background(0, 20);
             // rect(windowWidth / 10, windowHeight / 10, windowWidth / 2, windowHeight / 2);
             // 不显示边缘
             noStroke();
-            fill(100, 200, mouseY, mouseX);
-            ellipse(mouseX, mouseY, 50, 50);
+            fill(100, 200, mouseY, 10);
+            ellipse(mouseX, mouseY, circleSize, circleSize);
             // 不显示鼠标
             noCursor();
+            // 显示一个圆环
+            stroke(100, 200, mouseY, 5);
+            noFill();
+            strokeWeight(6);
+            ellipse(mouseX, mouseY, breathSize, breathSize);
+            strokeWeight(5);
+            ellipse(mouseX, mouseY, breathSize * 0.8, breathSize * 0.8);
+            strokeWeight(4);
+            ellipse(mouseX, mouseY, breathSize * 0.6, breathSize * 0.6);
+
+            breathSize += tag * speed;
+            // breathSize 在 100 和 120 之间变换
+            if (breathSize > 120) {
+                tag = -1;
+            } else if (breathSize < 70) {
+                tag = 1;
+            }
+            circleSize += tag * speed;
+            // circleSize 在 30 和 50 之间变换
+            if (circleSize > 50) {
+                tag = -1;
+            } else if (circleSize < 30) {
+                tag = 1;
+            }
         }
 
 
