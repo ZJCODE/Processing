@@ -21,8 +21,8 @@
         var y = 0;
         var tag = 1;
         let circleSize = 30;
-        var breathSize = 100;
-        let speed = 0.15;
+        var breathSize = 90;
+        let speed = 0.06;
 
         function setup() {
             let myCanvas = createCanvas(600, 400);
@@ -36,32 +36,34 @@
             // rect(windowWidth / 10, windowHeight / 10, windowWidth / 2, windowHeight / 2);
             // 不显示边缘
             noStroke();
-            fill(100, 200, mouseY, 10);
+            fill(100, 200, mouseY, 150);
             ellipse(mouseX, mouseY, circleSize, circleSize);
             // 不显示鼠标
             noCursor();
             // 显示一个圆环
-            stroke(100, 200, mouseY, 5);
             noFill();
             strokeWeight(6);
+            stroke(100, 200, mouseY, 10);
             ellipse(mouseX, mouseY, breathSize, breathSize);
-            strokeWeight(5);
-            ellipse(mouseX, mouseY, breathSize * 0.8, breathSize * 0.8);
             strokeWeight(4);
+            stroke(100, 200, mouseY, 30);
+            ellipse(mouseX, mouseY, breathSize * 0.8, breathSize * 0.8);
+            strokeWeight(3);
+            stroke(100, 200, mouseY, 100);
             ellipse(mouseX, mouseY, breathSize * 0.6, breathSize * 0.6);
 
             breathSize += tag * speed;
             // breathSize 在 100 和 120 之间变换
-            if (breathSize > 120) {
+            if (breathSize > 130) {
                 tag = -1;
-            } else if (breathSize < 70) {
+            } else if (breathSize < 50) {
                 tag = 1;
             }
             circleSize += tag * speed;
-            // circleSize 在 30 和 50 之间变换
+            // circleSize 在 40 和 50 之间变换
             if (circleSize > 50) {
                 tag = -1;
-            } else if (circleSize < 30) {
+            } else if (circleSize < 40) {
                 tag = 1;
             }
         }
