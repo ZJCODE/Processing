@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>p5.js Canvas Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.6.0/lib/p5.js"></script>
+
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+
+</head>
+
+<body>
+    <script>
+
+        var y = 0;
+        var tag = 1;
+
+        function setup() {
+            let myCanvas = createCanvas(600, 400);
+            myCanvas.parent('myContainer');
+        }
+
+        function draw() {
+            // 绘制代码...
+            background(0, 10);
+            // rect(windowWidth / 10, windowHeight / 10, windowWidth / 2, windowHeight / 2);
+            // 不显示边缘
+            noStroke();
+            fill(100, 200, mouseY, mouseX);
+            ellipse(mouseX, mouseY, 50, 50);
+            // 不显示鼠标
+            noCursor();
+        }
+
+
+        function windowResized() {
+            resizeCanvas(windowWidth, windowHeight);
+        }
+    </script>
+
+
+    <div style="text-align: center;">
+        <h3>SHOW CASE FOR PROCESSING</h3>
+    </div>
+
+    <!-- 添加一个List 其有3个链接引用Web目录下的html 并居中 不显示 点-->
+    <div style="text-align: center;">
+        <a href="Web/001.html">001</a>
+        <a href="Web/002.html">002</a>
+        <a href="Web/003.html">003</a>
+    </div>
+
+    <!-- 新增一个居中的文本 -->
+    <div style="text-align: center;">
+        <h3>Playground</h3>
+    </div>
+    <!-- 将 myContainer 居中显示-->
+    <div id="myContainer" style="text-align: center;"></div>
+
+</body>
+
+</html>
