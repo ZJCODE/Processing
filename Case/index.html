@@ -1,29 +1,66 @@
 <html>
   <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.min.js"></script>
-    <!-- 整个画布在页面居中 -->
     <style>
       body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f9f9f9;
+        color: #333;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
         margin: 0;
+      }
+
+      li {
+        margin-bottom: 10px;
+        font-size: 1.1em;
+        color: #333;
+      }
+
+      a {
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+        transition: color 0.3s ease;
+      }
+
+      a:hover,
+      a:focus {
+        color: #f58025;
+      }
+
+      h1 {
+        font-size: 2.5em;
+        margin-bottom: 30px;
+        color: #333;
+      }
+
+      @media (max-width: 600px) {
+        body {
+          padding: 10px;
+        }
       }
     </style>
   </head>
   <body>
-    <!-- 这是一个目录导航 -->
-    <h1>Case</h1>
-    <!-- 逐行增加case链接 从 001 开始 -->
+    <h1>Case Study</h1>
     <ul>
       <li>
-        <a href="https://zjcode.github.io/Processing/Case/001/index.html"
+        <a
+          href="https://zjcode.github.io/Processing/Case/001/index.html"
+          target="_blank"
           >001</a
         >
       </li>
       <li>
-        <a href="https://zjcode.github.io/Processing/Case/001/index.html"
+        <a
+          href="https://zjcode.github.io/Processing/Case/001/index.html"
+          target="_blank"
           >002</a
         >
       </li>
