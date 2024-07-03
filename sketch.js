@@ -19,13 +19,10 @@ function draw() {
   fill(180);
   textSize(height / 15);
   text("🢣", width / 2.3, height / 2.3);
-  // rectMode(CENTER);
-  // noFill();
-  // rect(width / 2.3, height / 2.3, height / 10, height / 10);
 }
 
 function mousePressed() {
-  // 检查鼠标位置是否在“Click Me”文字区域内
+  // 检查鼠标位置是否在文字区域内
   let d = dist(
     mouseX,
     mouseY,
@@ -33,7 +30,6 @@ function mousePressed() {
     height / 2 + height / 2.3
   );
   if (d < height / 10) {
-    // 假设100是根据文字大小和间距大致估算的点击区域半径
     window.open(
       "https://zjcode.github.io/Processing/Case/index.html",
       "_blank"
