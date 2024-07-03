@@ -7,24 +7,40 @@ function setup() {
 function draw() {
   background("#101010");
   translate(width / 2, height / 2);
-  textSize(64);
+  textFont("Quicksand");
+  textSize(height / 8);
   textAlign(CENTER, CENTER);
-  fill(255);
-  text("Hello World", 0, -50);
-  textSize(32);
-  text("Something Interesting Gonna Happen Here", 0, 50);
-  textSize(16);
-  text("Click Me", 0, 150); // 假设这是你想要点击的链接
+  fill(220);
+  text("Generative Art", 0, -height / 15);
+  textSize(height / 20);
+  fill(200);
+  text("Something Interesting", 0, height / 15); // 假设这是你想要点击的链接
+  textFont("Noto Sans Symbols 2");
+  fill(180);
+  textSize(height / 15);
+  text("🢣", width / 2.3, height / 2.3);
+  // rectMode(CENTER);
+  // noFill();
+  // rect(width / 2.3, height / 2.3, height / 10, height / 10);
 }
 
 function mousePressed() {
   // 检查鼠标位置是否在“Click Me”文字区域内
-  let d = dist(mouseX, mouseY, width / 2, height / 2 + 150);
-  if (d < 50) {
+  let d = dist(
+    mouseX,
+    mouseY,
+    width / 2 + width / 2.3,
+    height / 2 + height / 2.3
+  );
+  if (d < height / 10) {
     // 假设100是根据文字大小和间距大致估算的点击区域半径
     window.open(
       "https://zjcode.github.io/Processing/Case/index.html",
       "_blank"
     ); // 打开链接
   }
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
 }
