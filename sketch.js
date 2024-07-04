@@ -6,6 +6,13 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
 }
 
+// 计算箭头位置的函数
+function calculateArrowPosition(isRight) {
+  // 基于是否是右侧箭头，返回计算后的位置
+  let basePos = min(max(width / 10, 60), 80);
+  return isRight ? -basePos : basePos - min(width, height) / 15;
+}
+
 function index_page() {
   push();
   translate(width / 2, height / 2);
@@ -23,8 +30,8 @@ function index_page() {
   textFont("Noto Sans Symbols 2");
   fill(180);
   textSize(min(width, height) / 15);
-  text("🢣", -min(max(width / 10, 60), 80), height - height / 30);
-  point(-min(max(width / 10, 60), 80), height - height / 30);
+  let arrowPos = calculateArrowPosition(true); // 使用函数计算右侧箭头位置
+  text("🢣", arrowPos, height - height / 30);
   pop();
 }
 
@@ -34,11 +41,8 @@ function another_page() {
   textFont("Noto Sans Symbols 2");
   fill(180);
   textSize(min(width, height) / 15);
-  text(
-    "🢢",
-    min(max(width / 10, 60), 80) - min(width, height) / 15,
-    height - height / 30
-  );
+  let arrowPos = calculateArrowPosition(false); // 使用函数计算左侧箭头位置
+  text("🢢", arrowPos, height - height / 30);
 }
 
 function draw() {
