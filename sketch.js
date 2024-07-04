@@ -9,7 +9,7 @@ function setup() {
 // 计算箭头位置的函数
 function calculateArrowPosition(isRight) {
   // 基于是否是右侧箭头，返回计算后的位置
-  let basePos = min(max(width / 10, 60), 80);
+  let basePos = min(max(width / 10, 30), 60);
   return isRight ? -basePos : basePos - min(width, height) / 15;
 }
 
@@ -57,7 +57,7 @@ function mousePressed() {
     let d = dist(
       mouseX,
       mouseY,
-      width - min(max(width / 10, 60), 80),
+      width + calculateArrowPosition(true),
       height - height / 30
     );
     if (d < height / 10) {
@@ -67,7 +67,7 @@ function mousePressed() {
     let d = dist(
       mouseX,
       mouseY,
-      min(max(width / 10, 60), 80) - height / 15,
+      calculateArrowPosition(false),
       height - height / 30
     );
     if (d < height / 10) {
