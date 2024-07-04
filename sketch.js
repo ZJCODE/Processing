@@ -18,7 +18,7 @@ class Particle {
 
   check(val) {
     const dist = p5.Vector.dist(val, this.pos);
-    return dist < 100;
+    return dist < min(width, height) / 3;
   }
 
   render() {
