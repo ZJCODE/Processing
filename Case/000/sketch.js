@@ -112,6 +112,13 @@ let sketches = [
 
 // Function to dynamically create grid items
 function createGridItem(id, title) {
+  // Result example:
+  // <div class="grid-item">
+  //   <h2>Circle Sketch</h2>
+  //   <div id="example1"></div>
+  // </div>
+  // Add the grid item to the grid container
+
   let gridContainer = document.getElementById("grid-container");
 
   let gridItem = document.createElement("div");
