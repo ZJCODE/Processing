@@ -23,8 +23,7 @@ class Particle {
 
   render() {
     fill(150);
-    textSize(min(width, height) / 60);
-    text("◉", this.pos.x, this.pos.y);
+    circle(this.pos.x, this.pos.y, min(width, height) / 80);
   }
 
   bounce() {
