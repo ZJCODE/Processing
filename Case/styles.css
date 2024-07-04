@@ -45,3 +45,10 @@ margin-bottom: 50px;
 margin-top: 20px;
 color: #F5F5F5;
 }
+
+nav {
+    display: flex;
+  }
+  nav ul {
+    flex: 1;
+  }
