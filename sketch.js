@@ -102,10 +102,7 @@ function mousePressed() {
   // 检查鼠标位置是否在文字区域内
   let d = dist(mouseX, mouseY, width / 2, height / 2 - height / 15);
   if (d < height / 5) {
-    window.open(
-      "https://zjcode.github.io/Processing/Case/index.html",
-      "_blank"
-    ); // 打开链接
+    window.open("https://zjcode.github.io/Processing/Case/index.html"); // 打开链接
   }
 }
 
