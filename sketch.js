@@ -3,7 +3,7 @@
 let in_index = true;
 let particles = [];
 let particles_num = 20;
-let mVel = 1;
+let mVel = 0.3;
 
 class Particle {
   constructor() {
