@@ -3,7 +3,7 @@
 let in_index = true;
 let particles = [];
 let particles_num = 20;
-let mVel = 0.3;
+let mVel = 0.5;
 
 class Particle {
   constructor() {
@@ -22,8 +22,8 @@ class Particle {
   }
 
   render() {
-    fill(150);
-    circle(this.pos.x, this.pos.y, min(width, height) / 80);
+    fill(120);
+    circle(this.pos.x, this.pos.y, min(width, height) / 100);
   }
 
   bounce() {
@@ -46,7 +46,7 @@ function linked_dots() {
         particles[i].check(particles[y].pos) &&
         particles[i] != particles[y]
       ) {
-        strokeWeight(0.2);
+        strokeWeight(0.3);
         stroke(255, 50); // 增加线的透明度
         line(
           particles[i].pos.x,
