@@ -1,107 +1,136 @@
-// First sketch
-let sketch1 = function (p) {
-  let canvas;
+// Define the sketches
+let sketches = [
+  {
+    title: "Circle Sketch",
+    sketch: function (p) {
+      let canvas;
 
-  p.setup = function () {
-    canvas = p.createCanvas(300, 300);
-    canvas.parent("example1");
-    p.windowResized();
-  };
+      p.setup = function () {
+        canvas = p.createCanvas(300, 300);
+        canvas.parent("example1");
+        p.windowResized();
+      };
 
-  p.draw = function () {
-    p.background(220);
-    p.circle(p.width / 2, p.height / 2, p.width / 4);
-  };
+      p.draw = function () {
+        p.background(220);
+        p.circle(p.width / 2, p.height / 2, p.width / 4);
+      };
 
-  p.windowResized = function () {
-    let parentWidth = document.getElementById("example1").offsetWidth;
-    p.resizeCanvas(parentWidth, parentWidth);
-  };
+      p.windowResized = function () {
+        let parentWidth = document.getElementById("example1").offsetWidth;
+        p.resizeCanvas(parentWidth, parentWidth);
+      };
 
-  window.addEventListener("resize", p.windowResized);
-};
+      window.addEventListener("resize", p.windowResized);
+    },
+  },
+  {
+    title: "Rectangle Sketch",
+    sketch: function (p) {
+      let canvas;
 
-// Second sketch
-let sketch2 = function (p) {
-  let canvas;
+      p.setup = function () {
+        canvas = p.createCanvas(300, 300);
+        canvas.parent("example2");
+        p.windowResized();
+      };
 
-  p.setup = function () {
-    canvas = p.createCanvas(300, 300);
-    canvas.parent("example2");
-    p.windowResized();
-  };
+      p.draw = function () {
+        p.background(220);
+        p.rectMode(p.CENTER);
+        p.rect(p.width / 2, p.height / 2, p.width / 4);
+      };
 
-  p.draw = function () {
-    p.background(220);
-    p.rectMode(p.CENTER);
-    p.rect(p.width / 2, p.height / 2, p.width / 4);
-  };
+      p.windowResized = function () {
+        let parentWidth = document.getElementById("example2").offsetWidth;
+        p.resizeCanvas(parentWidth, parentWidth);
+      };
 
-  p.windowResized = function () {
-    let parentWidth = document.getElementById("example2").offsetWidth;
-    p.resizeCanvas(parentWidth, parentWidth);
-  };
+      window.addEventListener("resize", p.windowResized);
+    },
+  },
+  {
+    title: "Triangle Sketch",
+    sketch: function (p) {
+      let canvas;
 
-  window.addEventListener("resize", p.windowResized);
-};
+      p.setup = function () {
+        canvas = p.createCanvas(300, 300);
+        canvas.parent("example3");
+        p.windowResized();
+      };
 
-// Second sketch
-let sketch3 = function (p) {
-  let canvas;
+      p.draw = function () {
+        p.background(220);
+        p.translate(p.width / 2, p.height / 2);
+        p.triangle(
+          -p.width / 8,
+          p.height / 8,
+          0,
+          -p.height / 8,
+          p.width / 8,
+          p.height / 8
+        );
+      };
 
-  p.setup = function () {
-    canvas = p.createCanvas(300, 300);
-    canvas.parent("example3");
-    p.windowResized();
-  };
+      p.windowResized = function () {
+        let parentWidth = document.getElementById("example3").offsetWidth;
+        p.resizeCanvas(parentWidth, parentWidth);
+      };
 
-  p.draw = function () {
-    p.background(220);
-    p.translate(p.width / 2, p.height / 2);
-    p.triangle(
-      -p.width / 8,
-      p.height / 8,
-      0,
-      -p.height / 8,
-      p.width / 8,
-      p.height / 8
-    );
-  };
+      window.addEventListener("resize", p.windowResized);
+    },
+  },
+  {
+    title: "Text Sketch",
+    sketch: function (p) {
+      let canvas;
 
-  p.windowResized = function () {
-    let parentWidth = document.getElementById("example3").offsetWidth;
-    p.resizeCanvas(parentWidth, parentWidth);
-  };
+      p.setup = function () {
+        canvas = p.createCanvas(300, 300);
+        canvas.parent("example4");
+        p.windowResized();
+      };
 
-  window.addEventListener("resize", p.windowResized);
-};
+      p.draw = function () {
+        p.background(220);
+        p.textAlign(p.CENTER, p.CENTER);
+        p.textSize(32);
+        p.text("Hello", p.width / 2, p.height / 2);
+      };
 
-// Second sketch
-let sketch4 = function (p) {
-  let canvas;
+      p.windowResized = function () {
+        let parentWidth = document.getElementById("example4").offsetWidth;
+        p.resizeCanvas(parentWidth, parentWidth);
+      };
 
-  p.setup = function () {
-    canvas = p.createCanvas(300, 300);
-    canvas.parent("example4");
-    p.windowResized();
-  };
+      window.addEventListener("resize", p.windowResized);
+    },
+  },
+  // Add more sketches as needed
+];
 
-  p.draw = function () {
-    p.background(220);
-    p.textAlign(p.CENTER, p.CENTER);
-    p.textSize(32);
-    p.text("Hello", p.width / 2, p.height / 2);
-  };
+// Function to dynamically create grid items
+function createGridItem(id, title) {
+  let gridContainer = document.getElementById("grid-container");
 
-  p.windowResized = function () {
-    let parentWidth = document.getElementById("example4").offsetWidth;
-    p.resizeCanvas(parentWidth, parentWidth);
-  };
+  let gridItem = document.createElement("div");
+  gridItem.classList.add("grid-item");
 
-  window.addEventListener("resize", p.windowResized);
-};
+  let h2 = document.createElement("h2");
+  h2.textContent = title;
+  gridItem.appendChild(h2);
 
-new p5(sketch1);
-new p5(sketch2);
-new p5(sketch3);
-new p5(sketch4);
+  let div = document.createElement("div");
+  div.id = id;
+  gridItem.appendChild(div);
+
+  gridContainer.appendChild(gridItem);
+}
+
+// Create grid items and instantiate sketches
+sketches.forEach((sketchObj, index) => {
+  let id = "example" + (index + 1);
+  createGridItem(id, sketchObj.title);
+  new p5(sketchObj.sketch, id);
+});
